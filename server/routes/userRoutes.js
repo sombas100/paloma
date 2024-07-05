@@ -7,4 +7,4 @@ router.post('/register', registerUser);
 router.post('/login', authUser);
 router.get('/profile', protect, getUserProfile, updateUserProfile);
 
-exports.module = router;
+module.exports = router;
