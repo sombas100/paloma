@@ -1,0 +1,32 @@
+.container {
+    margin-left: 50%;
+    margin-top: 10%;
+}
+
+.blur-left {
+    position: absolute;
+    width: 40vw;
+    height: 20vw;
+    min-width: 350px;
+    min-height: 350px;
+    top: -90px;
+    left: -40vw;
+    border-radius: 764px;
+    background: rgba(245, 122, 245, 0.7);
+    filter: blur(200px);
+    z-index: 0;
+}
+
+.blur-right {
+    position: absolute;
+    width:90vw;
+    height: 40vw;
+    min-width: 200px;
+    min-height: 350px;
+    top: 200px;
+    right: -60vw;
+    border-radius: 764px;
+    background: rgba(245, 122, 245, 0.7);
+    filter: blur(300px);
+    z-index: 0;
+}
