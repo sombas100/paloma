@@ -1,6 +1,7 @@
 import { Button, Navbar } from "flowbite-react";
 import { useNavigate } from "react-router-dom";
 import "./Header.css";
+import { IoCart } from "react-icons/io5";
 
 export function Header() {
   const navigate = useNavigate();
@@ -25,7 +26,18 @@ export function Header() {
           <Navbar.Link href="/about" active={location.pathname === "/about"}>
             About
           </Navbar.Link>
-          <Navbar.Link href="#">Services</Navbar.Link>
+          <Navbar.Link href="/about" active={location.pathname === "/dresses"}>
+            Dresses
+          </Navbar.Link>
+          <Navbar.Link href="/about" active={location.pathname === "/shoes"}>
+            Shoes
+          </Navbar.Link>
+          <Navbar.Link
+            href="/about"
+            active={location.pathname === "/accessories"}
+          >
+            Accessories
+          </Navbar.Link>
         </Navbar.Collapse>
       </div>
       <Button
@@ -36,6 +48,9 @@ export function Header() {
         Login
       </Button>
       <Navbar.Toggle />
+      <div>
+        <IoCart size={40} />
+      </div>
     </Navbar>
   );
 }
