@@ -3,7 +3,7 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
 exports.registerUser = async (req, res) => {
-    const { name, email, password } = req.body;
+    const { name, email, password, isAdmin } = req.body;
 
     try {
         const userExists = await User.findOne({ email });
@@ -18,7 +18,8 @@ exports.registerUser = async (req, res) => {
         const user = new User({
             name,
             email,
-            password: hashedPassword
+            password: hashedPassword,
+            isAdmin
         })
 
         const createdUser = await user.save();
@@ -46,7 +47,7 @@ exports.authUser = async (req, res) => {
                 name: user.name,
                 email: user.email,
                 isAdmin: user.isAdmin,
-                token: jwt.sign({ id: user._id}, process.env.JWT_SECRET, { expiresIn: '2h' })
+                token: jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: '2h' })
             });
         } else {
             res.status(401).json({ message: 'Invalid Credentials' });

@@ -4,3 +4,11 @@
     margin-left: 10%;
     border-bottom: 0.5px grey solid;
 }
+
+.nav-link {
+    font-size: 19px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 600;
+}
+
+

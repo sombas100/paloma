@@ -14,25 +14,39 @@ export function Header() {
           className="mr-3 h-6 sm:h-9"
           alt="Flowbite React Logo"
         />
-        <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
-          Paloma
-        </span>
       </Navbar.Brand>
       <div className="flex md:order-2">
         <Navbar.Collapse>
-          <Navbar.Link href="/" active={location.pathname === "/"}>
+          <Navbar.Link
+            className="nav-link"
+            href="/"
+            active={location.pathname === "/"}
+          >
             Shop
           </Navbar.Link>
-          <Navbar.Link href="/about" active={location.pathname === "/about"}>
+          <Navbar.Link
+            className="nav-link"
+            href="/about"
+            active={location.pathname === "/about"}
+          >
             About
           </Navbar.Link>
-          <Navbar.Link href="/about" active={location.pathname === "/dresses"}>
+          <Navbar.Link
+            className="nav-link"
+            href="/about"
+            active={location.pathname === "/dresses"}
+          >
             Dresses
           </Navbar.Link>
-          <Navbar.Link href="/about" active={location.pathname === "/shoes"}>
+          <Navbar.Link
+            className="nav-link"
+            href="/about"
+            active={location.pathname === "/shoes"}
+          >
             Shoes
           </Navbar.Link>
           <Navbar.Link
+            className="nav-link"
             href="/about"
             active={location.pathname === "/accessories"}
           >
