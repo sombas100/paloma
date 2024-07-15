@@ -2,9 +2,21 @@ import { Button, Navbar } from "flowbite-react";
 import { useNavigate } from "react-router-dom";
 import "./Header.css";
 import { IoCart } from "react-icons/io5";
+import { logout } from "../../redux/slices/userSlice";
+import { RootState } from "../../redux/store";
+import { useDispatch, useSelector } from "react-redux";
 
 export function Header() {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  const userLogin = useSelector((state: RootState) => state.user);
+  const { userInfo } = userLogin;
+
+  const handleLogout = () => {
+    dispatch(logout());
+    navigate("/login");
+  };
   return (
     <Navbar className="nav" fluid rounded>
       <Navbar.Brand href="https://flowbite-react.com">
@@ -54,13 +66,22 @@ export function Header() {
           </Navbar.Link>
         </Navbar.Collapse>
       </div>
-      <Button
-        gradientDuoTone="purpleToPink"
-        outline
-        onClick={() => navigate("/login")}
-      >
-        Login
-      </Button>
+      {userInfo ? (
+        <>
+          <Button outline gradientDuoTone="purpleToPink" onClick={handleLogout}>
+            Logout
+          </Button>
+        </>
+      ) : (
+        <Button
+          gradientDuoTone="purpleToPink"
+          outline
+          onClick={() => navigate("/login")}
+        >
+          Login
+        </Button>
+      )}
+
       <Navbar.Toggle />
       <div>
         <IoCart size={40} />

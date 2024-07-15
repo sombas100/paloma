@@ -1,0 +1,33 @@
+
+.carousel-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    margin-top: 96px;
+    
+  }
+  
+  .carousel-content {
+    width: 850px; 
+    padding-top: 24px;
+    padding-bottom: 0;
+    border-radius: 10px;
+    box-shadow: 10px 10px 40px 0px #fde1ff;
+  }
+  
+  .carousel-item img.carousel-image {
+    width: 100%; /* Make sure the image takes the full width of the container */
+    height: auto; /* Maintain aspect ratio */
+    max-width: 350px; /* Ensure the max width is 350px */
+    object-fit: cover; /* Ensure the image covers the container nicely */
+  }
+
+  .carousel-description {
+    font-size: 24px;
+    font-weight: 600;
+    margin-top: 24px;
+    font-family: 'PT Serif', serif;
+    color: #222020;
+  }
+  

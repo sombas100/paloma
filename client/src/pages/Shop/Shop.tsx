@@ -1,8 +1,13 @@
-import React from "react";
 import Hero from "../../Components/Hero/Hero";
+import CustomCarousel from "../../Components/CustomCarousel";
 
 const Shop = () => {
-  return <Hero />;
+  return (
+    <>
+      <Hero />
+      <CustomCarousel />
+    </>
+  );
 };
 
 export default Shop;
