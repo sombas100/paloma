@@ -68,13 +68,13 @@ export function Header() {
       </div>
       {userInfo ? (
         <>
-          <Button outline gradientDuoTone="purpleToPink" onClick={handleLogout}>
+          <Button outline gradientMonochrome="pink" onClick={handleLogout}>
             Logout
           </Button>
         </>
       ) : (
         <Button
-          gradientDuoTone="purpleToPink"
+          gradientMonochrome="pink"
           outline
           onClick={() => navigate("/login")}
         >

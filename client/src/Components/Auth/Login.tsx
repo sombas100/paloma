@@ -19,9 +19,10 @@ const Login: React.FC = () => {
 
   useEffect(() => {
     if (userInfo) {
+      dispatch(login.fulfilled(userInfo));
       navigate("/");
     }
-  }, [userInfo, navigate]);
+  }, [dispatch, userInfo]);
 
   const submitHandler = (e: React.FormEvent) => {
     e.preventDefault();
