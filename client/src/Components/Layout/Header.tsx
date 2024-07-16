@@ -45,21 +45,21 @@ export function Header() {
           </Navbar.Link>
           <Navbar.Link
             className="nav-link"
-            href="/about"
+            href="/dresses"
             active={location.pathname === "/dresses"}
           >
             Dresses
           </Navbar.Link>
           <Navbar.Link
             className="nav-link"
-            href="/about"
+            href="/shoes"
             active={location.pathname === "/shoes"}
           >
             Shoes
           </Navbar.Link>
           <Navbar.Link
             className="nav-link"
-            href="/about"
+            href="/accessories"
             active={location.pathname === "/accessories"}
           >
             Accessories

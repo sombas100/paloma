@@ -5,8 +5,9 @@ import "./CustomCarousel.css"; // Import the CSS file
 
 const CustomCarousel: React.FC = () => {
   return (
-    <div className="carousel-container">
+    <section className="carousel-container">
       <div className="carousel-content">
+        <div className="carousel-title">This weeks offers</div>
         <Carousel
           showArrows={true}
           autoPlay
@@ -20,7 +21,10 @@ const CustomCarousel: React.FC = () => {
               alt="Vintage 1"
               className="carousel-image"
             />
-            <p className="carousel-description">Number 1</p>
+            <p className="carousel-description">
+              £19.99 |{" "}
+              <span style={{ textDecoration: "line-through" }}>£32.99</span>
+            </p>
           </div>
           <div className="carousel-item">
             <img
@@ -28,7 +32,10 @@ const CustomCarousel: React.FC = () => {
               alt="Vintage 2"
               className="carousel-image"
             />
-            <p className="carousel-description">Number 2</p>
+            <p className="carousel-description">
+              £14.99 |{" "}
+              <span style={{ textDecoration: "line-through" }}>£24.99</span>
+            </p>
           </div>
           <div className="carousel-item">
             <img
@@ -36,7 +43,10 @@ const CustomCarousel: React.FC = () => {
               alt="Vintage 3"
               className="carousel-image"
             />
-            <p className="carousel-description">Number 3</p>
+            <p className="carousel-description">
+              £32.99 |{" "}
+              <span style={{ textDecoration: "line-through" }}>£44.99</span>
+            </p>
           </div>
           <div className="carousel-item">
             <img
@@ -44,11 +54,14 @@ const CustomCarousel: React.FC = () => {
               alt="Vintage 4"
               className="carousel-image"
             />
-            <p className="carousel-description">Number 4</p>
+            <p className="carousel-description">
+              £4.99 |{" "}
+              <span style={{ textDecoration: "line-through" }}>£9.99</span>
+            </p>
           </div>
         </Carousel>
       </div>
-    </div>
+    </section>
   );
 };
 

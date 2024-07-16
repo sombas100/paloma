@@ -30,7 +30,7 @@ const Login: React.FC = () => {
   return (
     <form
       onSubmit={submitHandler}
-      className="container flex max-w-md flex-col gap-4"
+      className="login-container flex max-w-md flex-col gap-4"
     >
       <div className="content">
         <div className="mb-2 block">

@@ -1,8 +1,12 @@
-.container {
+.login-container {
     margin-left: auto;
     margin-top: 10%;
     margin-right: auto;
+    width: 100%;
+    flex-wrap: wrap;
 }
+
+
 
 .blur-left {
     position: absolute;

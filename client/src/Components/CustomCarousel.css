@@ -4,16 +4,24 @@
     justify-content: center;
     align-items: center;
     padding: 20px;
-    margin-top: 96px;
+    margin-top: 140px;
     
+  }
+
+  .carousel-title {
+    font-size: 30px;
+    font-weight: 600;
+    font-family: 'PT Serif', serif;
+    padding-left: 24px;
+    color: #36454F;
   }
   
   .carousel-content {
     width: 850px; 
-    padding-top: 24px;
+    padding-top: 34px;
     padding-bottom: 0;
     border-radius: 10px;
-    box-shadow: 10px 10px 40px 0px #fde1ff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   }
   
   .carousel-item img.carousel-image {
@@ -23,11 +31,13 @@
     object-fit: cover; /* Ensure the image covers the container nicely */
   }
 
+  
+
   .carousel-description {
     font-size: 24px;
     font-weight: 600;
     margin-top: 24px;
     font-family: 'PT Serif', serif;
-    color: #222020;
+    color: #36454F;
   }
   
