@@ -1,17 +1,18 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../redux/store";
-import { fetchProducts } from "../redux/slices/productSlice";
+import { RootState, AppDispatch } from "../redux/store";
+import { fetchProducts, selectAccessories } from "../redux/slices/productSlice";
 import ProductItem from "./ProductItem";
 import { Product } from "../types";
 import "./ProductList.css";
 import { Spinner } from "flowbite-react";
 
-const ProductList: React.FC = () => {
-  const dispatch = useDispatch();
-  const { products, loading, error } = useSelector(
-    (state: RootState) => state.products
+const AccessoriesList: React.FC = () => {
+  const dispatch = useDispatch<AppDispatch>();
+  const accessories = useSelector((state: RootState) =>
+    selectAccessories(state.products)
   );
+  const { loading, error } = useSelector((state: RootState) => state.products);
 
   useEffect(() => {
     dispatch(fetchProducts());
@@ -25,16 +26,16 @@ const ProductList: React.FC = () => {
     );
   if (error) return <div>Error: {error}</div>;
 
-  if (!products) return null;
+  if (!accessories) return null;
   return (
     <div className="product-list-container">
       <div className="product-list">
-        {products.slice(0, 20).map((product: Product) => (
-          <ProductItem key={product._id} product={product} />
+        {accessories.map((accessory: Product) => (
+          <ProductItem key={accessory._id} product={accessory} />
         ))}
       </div>
     </div>
   );
 };
 
-export default ProductList;
+export default AccessoriesList;

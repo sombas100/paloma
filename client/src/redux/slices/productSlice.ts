@@ -77,4 +77,7 @@ const productSlice = createSlice({
     },
 });
 
+export const selectShoes = (state: ProductState) => state.products.slice(24, 34);
+export const selectAccessories = (state: ProductState) => state.products.slice(34, 44);
+
 export default productSlice.reducer;
