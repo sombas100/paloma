@@ -15,6 +15,7 @@ const ProductDetail: React.FC = () => {
     (state: RootState) => state.products
   );
   const [product, setProduct] = useState<Product | null>(null);
+  const [quantity, setQuantity] = useState(1);
 
   useEffect(() => {
     if (products.length === 0) {
@@ -42,38 +43,76 @@ const ProductDetail: React.FC = () => {
         <Spinner size="lg" />
       </div>
     );
+  const handleIncrement = () => setQuantity(quantity + 1);
+  const handleDecrement = () => {
+    if (quantity > 1) {
+      setQuantity(quantity - 1);
+    }
+  };
+
   if (error) return <div>Error: {error}</div>;
   if (!product) return <div>Product not found</div>;
 
   return (
     <div className="product-detail-container">
-      <div className="product-images">
+      <div className="product-detail-images">
         <img
           className="large-image"
           src={product.imageUrl}
           alt={product.name}
         />
         <div className="small-images">
-          {[
-            ...Array(4).map((_, index) => (
-              <img
-                key={index}
-                className="small-image"
-                src={product.imageUrl}
-                alt={`${product.name} ${index}`}
-              />
-            )),
-          ]}
+          <img
+            className="small-image"
+            src={product.imageUrl}
+            alt={product.name}
+          />
+          <img
+            className="small-image"
+            src={product.imageUrl}
+            alt={product.name}
+          />
+          <img
+            className="small-image"
+            src={product.imageUrl}
+            alt={product.name}
+          />
+          <img
+            className="small-image"
+            src={product.imageUrl}
+            alt={product.name}
+          />
+          <img
+            className="small-image"
+            src={product.imageUrl}
+            alt={product.name}
+          />
         </div>
       </div>
-      <div>
+      <div className="product-board">
         <h1 className="product-title">{product.name}</h1>
         <div className="size-buttons-container">
           <Button color="gray">XS</Button>
           <Button color="gray">S</Button>
           <Button color="gray">M</Button>
-          <Button color="gray">LG</Button>
+          <Button color="gray">L</Button>
           <Button color="gray">XL</Button>
+        </div>
+        <div className="quantity-selector">
+          <Button color="gray" onClick={handleDecrement}>
+            -
+          </Button>
+          <input
+            type="text"
+            inputMode="numeric"
+            className="quantity-input"
+            value={quantity}
+            onChange={(e) => setQuantity(parseInt(e.target.value))}
+            min="1"
+          />
+          <Button color="gray" onClick={handleIncrement}>
+            +
+          </Button>
         </div>
         <p className="product-description">{product.description}</p>
         <p className="product-price">£{product.price}</p>
@@ -81,7 +120,7 @@ const ProductDetail: React.FC = () => {
       </div>
 
       <div className="add-to-basket">
-        <Button size="lg" pill color="warning">
+        <Button size="lg" pill gradientMonochrome="pink">
           Add to Basket
         </Button>
       </div>

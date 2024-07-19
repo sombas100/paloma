@@ -30,7 +30,9 @@ const ProductList: React.FC = () => {
     <div className="product-list-container">
       <div className="product-list">
         {products.slice(0, 20).map((product: Product) => (
-          <ProductItem key={product._id} product={product} />
+          <div key={product._id} className="product-item">
+            <ProductItem product={product} />
+          </div>
         ))}
       </div>
     </div>

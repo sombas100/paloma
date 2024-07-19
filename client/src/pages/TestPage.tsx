@@ -1,5 +1,6 @@
 import React from "react";
 import CustomCarousel from "../Components/CustomCarousel";
+import { CustomAccordion } from "../Components/CustomAccordion";
 import { Banner } from "../Components/Banner";
 
 const TestPage = () => {
@@ -7,6 +8,7 @@ const TestPage = () => {
     <div>
       <CustomCarousel />
       <Banner />
+      <CustomAccordion />
     </div>
   );
 };
