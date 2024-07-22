@@ -7,9 +7,12 @@ import { Product } from "../types";
 import "./ProductDetail.css";
 import { Spinner } from "flowbite-react";
 import { Button } from "flowbite-react";
+import { addToCart } from "../redux/slices/cartSlice";
+import { useNavigate } from "react-router-dom";
 
 const ProductDetail: React.FC = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
   const dispatch = useDispatch<AppDispatch>();
   const { products, loading, error } = useSelector(
     (state: RootState) => state.products
@@ -48,6 +51,22 @@ const ProductDetail: React.FC = () => {
     if (quantity > 1) {
       setQuantity(quantity - 1);
     }
+  };
+
+  const handleAddToCart = () => {
+    if (product) {
+      dispatch(
+        addToCart({
+          product: product._id,
+          name: product.name,
+          image: product.imageUrl,
+          price: product.price,
+          countInStock: product.stock,
+          qty: quantity,
+        })
+      );
+    }
+    navigate("/cart");
   };
 
   if (error) return <div>Error: {error}</div>;
@@ -120,8 +139,13 @@ const ProductDetail: React.FC = () => {
       </div>
 
       <div className="add-to-basket">
-        <Button size="lg" pill gradientMonochrome="pink">
-          Add to Basket
+        <Button
+          onClick={handleAddToCart}
+          size="lg"
+          pill
+          gradientMonochrome="pink"
+        >
+          Add to Cart
         </Button>
       </div>
     </div>

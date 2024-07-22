@@ -5,6 +5,7 @@ import { IoCart } from "react-icons/io5";
 import { logout } from "../../redux/slices/userSlice";
 import { RootState } from "../../redux/store";
 import { useDispatch, useSelector } from "react-redux";
+import { CartItem } from "../../redux/slices/cartSlice";
 
 export function Header() {
   const dispatch = useDispatch();
@@ -12,6 +13,13 @@ export function Header() {
 
   const userLogin = useSelector((state: RootState) => state.user);
   const { userInfo } = userLogin;
+
+  const cart = useSelector((state: RootState) => state.cart);
+  const { cartItems } = cart;
+  const itemCount = cartItems.reduce(
+    (acc: any, item: any) => acc + item.qty,
+    0
+  );
 
   const handleLogout = () => {
     dispatch(logout());
@@ -36,13 +44,7 @@ export function Header() {
           >
             Shop
           </Navbar.Link>
-          <Navbar.Link
-            className="nav-link"
-            href="/about"
-            active={location.pathname === "/about"}
-          >
-            About
-          </Navbar.Link>
+
           <Navbar.Link
             className="nav-link"
             href="/dresses"
@@ -83,8 +85,9 @@ export function Header() {
       )}
 
       <Navbar.Toggle />
-      <div>
-        <IoCart size={40} />
+      <div className="cart-icon-container" onClick={() => navigate("/cart")}>
+        <IoCart style={{ cursor: "pointer" }} size={40} />
+        {itemCount > 0 && <span className="cart-badge">{itemCount}</span>}
       </div>
     </Navbar>
   );
