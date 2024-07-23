@@ -57,6 +57,38 @@ exports.authUser = async (req, res) => {
     }
 };
 
+exports.google = async (req, res, next) => {
+    try {
+      const { name, email, googlePhotoUrl } = req.body;
+  
+      if (!email) {
+        return res.status(400).json({ message: 'Invalid user data' });
+      }
+  
+      let existingUser = await User.findOne({ email });
+  
+      if (!existingUser) {
+        existingUser = new User({
+          username: name,
+          email: email,
+          password: 'defaultPw',
+          profileImage: googlePhotoUrl,
+          isAdmin: false,
+        });
+        await existingUser.save();
+      }
+  
+      const token = jwt.sign({ id: existingUser._id }, process.env.JWT_SECRET);
+  
+      res.cookie('access_token', token, { httpOnly: true })
+    res.status(200).json({ token, user: existingUser });
+  
+    } catch (error) {
+      console.error('Error authenticating user:', error);
+      res.status(500).json({ message: 'Internal Server Error', error: error.message });
+    }
+  };
+
 exports.getUserProfile = async (req, res) => {
 const { id } = req.params
 

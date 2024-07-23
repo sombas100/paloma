@@ -6,6 +6,7 @@ import { Button, Checkbox, Label, TextInput, Alert } from "flowbite-react";
 import "./Login.css";
 import { useNavigate, Link } from "react-router-dom";
 import { MdInfo } from "react-icons/md";
+import OAuth from "./OAuth";
 
 const Login: React.FC = () => {
   const [email, setEmail] = useState("");
@@ -74,6 +75,7 @@ const Login: React.FC = () => {
           "Login"
         )}
       </Button>
+      <OAuth />
       {error && (
         <Alert color="failure" icon={MdInfo}>
           <span>{error}</span>

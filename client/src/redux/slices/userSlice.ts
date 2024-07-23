@@ -62,6 +62,11 @@ const userSlice = createSlice({
         logout: (state) => {
             state.userInfo = null;
             localStorage.removeItem('userInfo')
+        },
+        signInSuccess: (state, action) => {
+            state.userInfo = action.payload;
+            state.loading = false;
+            state.error = null;
         }
     },
     extraReducers: (builder) => {
@@ -93,7 +98,7 @@ const userSlice = createSlice({
     },
 });
 
-export const { logout } = userSlice.actions;
+export const { logout, signInSuccess } = userSlice.actions;
 
 
 

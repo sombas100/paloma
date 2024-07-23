@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
 import { register } from "../../redux/slices/userSlice";
 import { MdInfo } from "react-icons/md";
+import OAuth from "./OAuth";
 
 const Register = () => {
   const [name, setName] = useState("");
@@ -111,6 +112,7 @@ const Register = () => {
       <Button gradientDuoTone="purpleToPink" type="submit" disabled={loading}>
         {loading ? "Registering..." : "Register"}
       </Button>
+      <OAuth />
       <div className="blur-left"></div>
       <div className="blur-right"></div>
     </form>
