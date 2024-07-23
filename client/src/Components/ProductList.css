@@ -21,4 +21,23 @@
     color: #36454F;
   }
   
-  
+  @media (max-width: 768px) {
+    .product-list {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .product-item {
+        padding: 10px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .product-list {
+        grid-template-columns: 1fr;
+        display: block;
+    }
+
+    .product-item {
+        padding: 5px;
+    }
+  }

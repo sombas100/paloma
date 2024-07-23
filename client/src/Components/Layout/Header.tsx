@@ -27,12 +27,13 @@ export function Header() {
   };
   return (
     <Navbar className="nav" fluid rounded>
-      <Navbar.Brand href="https://flowbite-react.com">
+      <Navbar.Brand>
         <img
-          style={{ width: 100, height: 75 }}
+          style={{ cursor: "pointer", width: 100, height: 75 }}
           src="palomalogo.png"
           className="mr-3 h-6 sm:h-9"
           alt="Flowbite React Logo"
+          onClick={() => navigate("/")}
         />
       </Navbar.Brand>
       <div className="flex md:order-2">

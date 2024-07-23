@@ -6,8 +6,10 @@ import { Button } from "flowbite-react";
 import "./Cart.css";
 import { CartItem } from "../../redux/slices/cartSlice";
 import { FaTrash } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 const Cart: React.FC = () => {
+  const navigate = useNavigate();
   const dispatch = useDispatch<AppDispatch>();
   const cart = useSelector((state: RootState) => state.cart);
   const { cartItems } = cart;
@@ -26,6 +28,9 @@ const Cart: React.FC = () => {
       .toFixed(2);
   };
 
+  const handleProceedToCheckout = () => {
+    navigate("/checkout");
+  };
   return (
     <div className="cart-container">
       <div className="cart-content">
@@ -90,7 +95,7 @@ const Cart: React.FC = () => {
             </div>
           </div>
         )}
-        <Button pill color="warning">
+        <Button onClick={handleProceedToCheckout} pill color="warning">
           Proceed to checkout
         </Button>
       </div>

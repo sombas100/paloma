@@ -1,4 +1,35 @@
 .checkout-container {
-    padding: 20px;
+    padding: 30px;
+  }
+
+  .checkout-title {
+    font-size: 32px;
+    font-weight: 600;
+    color: #36454F;
+  }
+
+  .checkout-summary {
+    padding-top: 18px;
+    font-size: 36px;
+    font-weight: 500;
+    color: #36454F;
   }
   
+  .checkout-item-name {
+    font-size: 28px;
+    margin-top: 30px;
+    color: #36454F;
+  }
+
+  .checkout-item-price {
+    font-size: 26px;
+    font-weight: 500;
+    padding-left: 12px;
+  }
+
+  .checkout-total {
+    padding-top: 24px;
+    font-size: 35px;
+    font-weight: 600;
+    color: #36454F;
+  }

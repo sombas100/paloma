@@ -3,31 +3,33 @@ import { useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
 import "./Checkout.css";
 import { CartItem } from "../../redux/slices/cartSlice";
+import StripeCheckout from "../../Components/StripeCheckout";
 
 const Checkout: React.FC = () => {
   const cartItems = useSelector((state: RootState) => state.cart.cartItems);
 
-  const totalPrice = cartItems.reduce(
-    (acc: any, item: any) => acc + item.price * item.qty,
-    0
-  );
+  const calculateTotalPrice = () => {
+    return cartItems.reduce(
+      (total: any, item: any) => total + item.price * item.qty,
+      0
+    );
+  };
   return (
     <div className="checkout-container">
-      <h2>Checkout</h2>
-      {cartItems.length === 0 ? (
-        <div>Your cart is empty</div>
-      ) : (
-        <div>
-          <ul>
-            {cartItems.map((item: CartItem) => (
-              <li key={item.product}>
-                {item.name} = £{item.price} x {item.qty}
-              </li>
-            ))}
-          </ul>
-          <h3>Total: £{totalPrice.toFixed(2)}</h3>
-        </div>
-      )}
+      <h1 className="checkout-title">Checkout</h1>
+      <StripeCheckout />
+      <div className="cart-summary">
+        <h2 className="checkout-summary">Order Summary</h2>
+        {cartItems.map((item: CartItem) => (
+          <div key={item.product} className="cart-item">
+            <p className="checkout-item-name">{item.name}</p>
+            <p className="checkout-item-price">
+              £{item.price} x {item.qty}
+            </p>
+          </div>
+        ))}
+        <h2 className="checkout-total">Total: £{calculateTotalPrice()}</h2>
+      </div>
     </div>
   );
 };
