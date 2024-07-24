@@ -59,6 +59,8 @@ const Login: React.FC = () => {
       <div className="flex items-center gap-2">
         <Checkbox id="remember" />
         <Label htmlFor="remember">Remember me</Label>
+        <p>Email: testuser123</p>
+        <p>Password: testuser123</p>
         <Link style={{ fontSize: "14px", marginLeft: "18px" }} to="/register">
           Don't have a paloma account?{" "}
           <span style={{ color: "blue", cursor: "pointer" }}>
