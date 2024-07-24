@@ -19,7 +19,7 @@ const OAuth: React.FC = () => {
     try {
       const resultsFromGoogle = await signInWithPopup(auth, provider);
       const res = await fetch(
-        "https://palomavintage.netlify.app/api/users/google",
+        "https://paloma-vo48.onrender.com/api/users/google",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
