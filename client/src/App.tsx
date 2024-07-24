@@ -5,7 +5,7 @@ import Shop from "./pages/Shop/Shop";
 import About from "./pages/About";
 import Login from "./Components/Auth/Login";
 import Register from "./Components/Auth/Register";
-import TestPage from "./pages/TestPage";
+
 import Dresses from "./pages/Dresses/Dresses";
 import Shoes from "./pages/Shoes/Shoes";
 import Accessories from "./pages/Accessories/Accessories";
@@ -28,7 +28,6 @@ function App() {
         <Route path="/product/:id" element={<ProductDetail />}></Route>
         <Route path="/cart" element={<Cart />}></Route>
         <Route path="/checkout" element={<Checkout />}></Route>
-        <Route path="/test" element={<TestPage />}></Route>
       </Routes>
     </Router>
   );
