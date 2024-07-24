@@ -18,18 +18,15 @@ const OAuth: React.FC = () => {
 
     try {
       const resultsFromGoogle = await signInWithPopup(auth, provider);
-      const res = await fetch(
-        "https://paloma-vo48.onrender.com/api/users/google",
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            name: resultsFromGoogle.user.displayName,
-            email: resultsFromGoogle.user.email,
-            googlePhotoUrl: resultsFromGoogle.user.photoURL,
-          }),
-        }
-      );
+      const res = await fetch("http://localhost:3000/api/users/google", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: resultsFromGoogle.user.displayName,
+          email: resultsFromGoogle.user.email,
+          googlePhotoUrl: resultsFromGoogle.user.photoURL,
+        }),
+      });
 
       if (res.ok) {
         const data = await res.json();

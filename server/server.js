@@ -14,9 +14,7 @@ connectDB();
 
 const app = express();
 
-app.use(cors({
-    origin: 'https://paloma-vo48.onrender.com'
-}));
+app.use(cors({}));
 app.use(express.json());
 
 app.use('/api/products', productRoutes);
