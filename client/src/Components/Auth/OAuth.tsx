@@ -10,7 +10,7 @@ import { useNavigate } from "react-router-dom";
 const OAuth: React.FC = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const apiUrl = import.meta.env.VITE_APP_BASE_URL;
+  const apiUrl = import.meta.env.VITE_APP_GOOGLE_BASE_URL;
 
   const handleGoogleClick = async () => {
     const auth = getAuth(app);
