@@ -33,6 +33,7 @@ exports.createProduct = async (req, res) => {
     price,
     imageUrl,
     stock,
+    category
   });
 
   try {

@@ -5,6 +5,7 @@ export interface Product {
     price: number;
     imageUrl: string;
     stock: number;
+    category: string;
 }
 
 export interface Shoes {

@@ -5,8 +5,7 @@ import { RootState, AppDispatch } from "../redux/store";
 import { fetchProducts } from "../redux/slices/productSlice";
 import { Product } from "../types";
 import "./ProductDetail.css";
-import { Spinner } from "flowbite-react";
-import { Button } from "flowbite-react";
+import { Spinner, Button } from "flowbite-react";
 import { addToCart } from "../redux/slices/cartSlice";
 import { useNavigate } from "react-router-dom";
 
@@ -46,6 +45,7 @@ const ProductDetail: React.FC = () => {
         <Spinner size="lg" />
       </div>
     );
+
   const handleIncrement = () => setQuantity(quantity + 1);
   const handleDecrement = () => {
     if (quantity > 1) {
@@ -110,13 +110,29 @@ const ProductDetail: React.FC = () => {
       </div>
       <div className="product-board">
         <h1 className="product-title">{product.name}</h1>
-        <div className="size-buttons-container">
-          <Button color="gray">XS</Button>
-          <Button color="gray">S</Button>
-          <Button color="gray">M</Button>
-          <Button color="gray">L</Button>
-          <Button color="gray">XL</Button>
-        </div>
+
+        {product.category !== "accessories" && (
+          <div className="size-buttons-container">
+            {product.category === "shoes" ? (
+              <>
+                <Button color="gray">5</Button>
+                <Button color="gray">6</Button>
+                <Button color="gray">7</Button>
+                <Button color="gray">8</Button>
+                <Button color="gray">9</Button>
+              </>
+            ) : (
+              <>
+                <Button color="gray">XS</Button>
+                <Button color="gray">S</Button>
+                <Button color="gray">M</Button>
+                <Button color="gray">L</Button>
+                <Button color="gray">XL</Button>
+              </>
+            )}
+          </div>
+        )}
+
         <div className="quantity-selector">
           <Button color="gray" onClick={handleDecrement}>
             -
