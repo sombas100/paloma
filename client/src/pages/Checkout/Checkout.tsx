@@ -28,7 +28,9 @@ const Checkout: React.FC = () => {
             </p>
           </div>
         ))}
-        <h2 className="checkout-total">Total: £{calculateTotalPrice()}</h2>
+        <h2 className="checkout-total">
+          Total: £{calculateTotalPrice().toFixed(2)}
+        </h2>
       </div>
     </div>
   );
