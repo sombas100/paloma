@@ -19,7 +19,7 @@ const OAuth: React.FC = () => {
     try {
       const resultsFromGoogle = await signInWithPopup(auth, provider);
       const res = await fetch(
-        `${import.meta.env.VITE_API_BASE_URL}/users/google`,
+        `${import.meta.env.VITE_APP_BASE_URL}/users/google`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
